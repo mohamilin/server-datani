@@ -85,6 +85,8 @@ module.exports = {
         }
       }else {
         res.json('email not found')
+        res.status(404).send(alert('erro'))
+        alert('email erro')
       }
 
     } catch (error) {
