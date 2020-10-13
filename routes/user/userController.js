@@ -84,7 +84,7 @@ module.exports = {
           res.json('password not ok')
         }
       }else {
-        res.status(401).json({
+        res.status(500).json({
           message: "email not founds"
         })
       }
