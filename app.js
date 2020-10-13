@@ -11,8 +11,6 @@ var app = express();
 
 // mulai dr sini
 const getUserRouter = require('./routes/user');
-
-
 // 
 
 app.use(logger('dev'));
