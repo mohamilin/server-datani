@@ -73,9 +73,7 @@ module.exports = {
     try {
       const user = await User.findOne({email: req.body.email});
       if(!user) {
-        req.flash('alertMessage', 'User yang anda masukan tidak ada!!');
-        req.flash('alertStatus', 'danger');
-        res.redirect('/login');
+        res.json('email tidak ada')
       }
       if(user) {
         const pass = bcrypt.compareSync(req.body.password, user.password);
