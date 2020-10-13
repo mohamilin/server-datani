@@ -74,6 +74,7 @@ module.exports = {
       const user = await User.findOne({email: req.body.email});
       if(!user) {
         res.json('email tidak ada')
+        res.alert('tidak ada')
       }
       if(user) {
         const pass = bcrypt.compareSync(req.body.password, user.password);
