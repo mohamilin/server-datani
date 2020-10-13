@@ -72,6 +72,11 @@ module.exports = {
   userLogin: async(req, res) => {
     try {
       const user = await User.findOne({email: req.body.email});
+      if(!user) {
+        req.flash('alertMessage', 'User yang anda masukan tidak ada!!');
+        req.flash('alertStatus', 'danger');
+        res.redirect('/login');
+      }
       if(user) {
         const pass = bcrypt.compareSync(req.body.password, user.password);
         if(pass) {
@@ -84,7 +89,7 @@ module.exports = {
           res.json('password not ok')
         }
       }else {
-        res.status(500).json({
+        res.json({
           message: "email not founds"
         })
       }
