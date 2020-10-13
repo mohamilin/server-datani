@@ -84,9 +84,9 @@ module.exports = {
           res.json('password not ok')
         }
       }else {
-        res.json('email not found')
-        res.status(404).send(alert('erro'))
-        alert('email erro')
+        res.status(401).json({
+          message: "email not founds"
+        })
       }
 
     } catch (error) {
